@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\BestSeller;
+use App\Http\Controllers\BestSellerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/best-seller', BestSeller::class);
+Route::get('/best-seller', BestSellerController::class);
