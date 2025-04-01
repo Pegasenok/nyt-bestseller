@@ -6,7 +6,14 @@ export PATH="/home/paul/.config/composer/vendor/bin:$PATH"
 laravel new nyt-bestseller
 # Add sail
 php artisan sail:install
-./vendor/bin/sail up
+subl ~/.bashrc
+alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
+```
+```bash
+sail up
+sail composer install
+sail artisan migrate
+sail stop
 ```
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
