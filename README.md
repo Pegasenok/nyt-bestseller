@@ -1,3 +1,14 @@
+## Miscellaneous:
+```bash
+# Init application steps
+composer global require laravel/installer
+export PATH="/home/paul/.config/composer/vendor/bin:$PATH"
+laravel new nyt-bestseller
+# Add sail
+php artisan sail:install
+./vendor/bin/sail up
+```
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
