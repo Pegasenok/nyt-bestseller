@@ -4,7 +4,9 @@ namespace App\Providers;
 
 use App\Services\BestSellerInterface;
 use App\Services\FakeHttpService;
+use App\Services\LimitedBestSellerDecorator;
 use App\Services\NytBestSellerService;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\ServiceProvider;
 
@@ -16,6 +18,9 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(BestSellerInterface::class, NytBestSellerService::class);
+        $this->app->extend(BestSellerInterface::class, function (BestSellerInterface $service, Application $app) {
+            return new LimitedBestSellerDecorator($service);
+        });
 
         Http::macro('nyt', function () {
             return Http::baseUrl(config('services.nyt.base_url'))

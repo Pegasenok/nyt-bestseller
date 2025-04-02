@@ -4,28 +4,19 @@ namespace App\Services;
 
 use App\DTO\BookResult;
 use App\Exceptions\ApiPreconditionException;
-use App\Exceptions\TooManyAttemptsException;
 use Exception;
 use GuzzleHttp\Promise\PromiseInterface;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\RateLimiter;
 
 class NytBestSellerService implements BestSellerInterface
 {
-    const LISTS_BEST_SELLERS_HISTORY_ENDPOINT = '/lists/best-sellers/history.json';
-
     /**
      * @throws ApiPreconditionException
-     * @throws TooManyAttemptsException
      */
     public function getBestSellerResults(): array
     {
-        // todo limit decorator
-        $this->limitPerMinute();
-        $this->limitPerDay();
-
         try {
             $response = $this->getNytHttp()->get(self::LISTS_BEST_SELLERS_HISTORY_ENDPOINT)->throw();
         } catch (Exception $e) {
@@ -39,29 +30,6 @@ class NytBestSellerService implements BestSellerInterface
         return $results->toArray();
     }
 
-    /**
-     * @throws TooManyAttemptsException
-     */
-    public function limitPerMinute(): void
-    {
-        $key = self::LISTS_BEST_SELLERS_HISTORY_ENDPOINT;
-        if (RateLimiter::tooManyAttempts($key, config('services.nyt.limits.minute'))) {
-            throw new TooManyAttemptsException('Too many attempts per minute.');
-        }
-        RateLimiter::hit($key, $perMinute = 60);
-    }
-
-    /**
-     * @throws TooManyAttemptsException
-     */
-    public function limitPerDay(): void
-    {
-        $key = self::LISTS_BEST_SELLERS_HISTORY_ENDPOINT.'day';
-        if (RateLimiter::tooManyAttempts($key, config('services.nyt.limits.day'))) {
-            throw new TooManyAttemptsException('Too many attempts per day.');
-        }
-        RateLimiter::hit($key, $perDay = 86400);
-    }
 
     /** @see \App\Providers\AppServiceProvider::register for macros configuration */
     private function getNytHttp(): PendingRequest
