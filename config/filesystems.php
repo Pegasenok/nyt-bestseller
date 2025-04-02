@@ -36,6 +36,13 @@ return [
             'throw' => false,
         ],
 
+        /** to store dev fixtures */
+        'resources' => [
+            'driver' => 'local',
+            'root' => resource_path(),
+            'throw' => true,
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

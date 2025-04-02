@@ -31,4 +31,14 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'nyt' => [
+        'api_key' => env('NYT_API_KEY'),
+        'base_url' => env('NYT_API_PATH'),
+        // limits based on https://developer.nytimes.com/faq#a11
+        'limits' => [
+            'day' => 500,
+            'minute' => 5,
+        ]
+    ],
+
 ];

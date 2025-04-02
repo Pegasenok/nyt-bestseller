@@ -1,0 +1,1025 @@
+{
+    "status": "OK",
+    "copyright": "Copyright (c) 2025 The New York Times Company.  All Rights Reserved.",
+    "num_results": 36755,
+    "results": [
+        {
+            "title": "Winger",
+            "description": null,
+            "contributor": null,
+            "author": "Smith  Andrew",
+            "contributor_note": null,
+            "price": "0.00",
+            "age_group": null,
+            "publisher": null,
+            "isbns": [
+                {
+                    "isbn10": "1442444924",
+                    "isbn13": "9781442444928"
+                }
+            ],
+            "ranks_history": [],
+            "reviews": [
+                {
+                    "book_review_link": "",
+                    "first_chapter_link": null,
+                    "sunday_review_link": "https:\/\/www.nytimes.com\/2013\/05\/12\/books\/review\/winger-by-andrew-smith.html",
+                    "article_chapter_link": null
+                }
+            ]
+        },
+        {
+            "title": "Winging It: A Tale of Turning Thirty",
+            "description": null,
+            "contributor": null,
+            "author": "Elizabeth Tippens",
+            "contributor_note": null,
+            "price": "0.00",
+            "age_group": null,
+            "publisher": null,
+            "isbns": [
+                {
+                    "isbn10": "1573225282",
+                    "isbn13": "9781573225281"
+                }
+            ],
+            "ranks_history": [],
+            "reviews": [
+                {
+                    "book_review_link": "",
+                    "first_chapter_link": null,
+                    "sunday_review_link": "https:\/\/www.nytimes.com\/1996\/06\/09\/books\/mr-wrong.html",
+                    "article_chapter_link": null
+                }
+            ]
+        },
+        {
+            "title": "WINGS",
+            "description": "Home schooling meets supernatural romance, with cellular-level scientific surprises.",
+            "contributor": "by Aprilynne Pike",
+            "author": "Aprilynne Pike",
+            "contributor_note": "",
+            "price": "16.99",
+            "age_group": "Ages 12 and up",
+            "publisher": "HarperCollins",
+            "isbns": [],
+            "ranks_history": [],
+            "reviews": [
+                {
+                    "book_review_link": "",
+                    "first_chapter_link": "",
+                    "sunday_review_link": "",
+                    "article_chapter_link": ""
+                }
+            ]
+        },
+        {
+            "title": "WINGS",
+            "description": "Intrigue for a girl who sprouts flower-wings.",
+            "contributor": "by Aprilynne Pike",
+            "author": "Aprilynne Pike",
+            "contributor_note": "",
+            "price": "0.00",
+            "age_group": "Ages 13 and up",
+            "publisher": "HarperTeen\/HarperCollins, hardcover and paper",
+            "isbns": [
+                {
+                    "isbn10": "0061668060",
+                    "isbn13": "9780061668067"
+                },
+                {
+                    "isbn10": "0061668095",
+                    "isbn13": "9780061668098"
+                },
+                {
+                    "isbn10": "0061668087",
+                    "isbn13": "9780061668081"
+                },
+                {
+                    "isbn10": "0061668052",
+                    "isbn13": "9780061668050"
+                }
+            ],
+            "ranks_history": [],
+            "reviews": [
+                {
+                    "book_review_link": "",
+                    "first_chapter_link": "",
+                    "sunday_review_link": "",
+                    "article_chapter_link": ""
+                }
+            ]
+        },
+        {
+            "title": "WINGS OF EBONY",
+            "description": "Rue is whisked away from Houston to the magical island of Ghizon.",
+            "contributor": "by J. Elle",
+            "author": "J. Elle",
+            "contributor_note": "",
+            "price": "0.00",
+            "age_group": "",
+            "publisher": "Denene Millner",
+            "isbns": [
+                {
+                    "isbn10": "1534470670",
+                    "isbn13": "9781534470675"
+                }
+            ],
+            "ranks_history": [],
+            "reviews": [
+                {
+                    "book_review_link": "",
+                    "first_chapter_link": "",
+                    "sunday_review_link": "",
+                    "article_chapter_link": ""
+                }
+            ]
+        },
+        {
+            "title": "WINGS OF FIRE",
+            "description": "Only the five dragonets of destiny can unite the seven warring dragon tribes. (Ages 9 to 12)",
+            "contributor": "by Tui T. Sutherland",
+            "author": "Tui T. Sutherland",
+            "contributor_note": "",
+            "price": "0.00",
+            "age_group": "Ages 9 to 12",
+            "publisher": "Scholastic",
+            "isbns": [
+                {
+                    "isbn10": "0545349214",
+                    "isbn13": "9780545349215"
+                },
+                {
+                    "isbn10": "0545349206",
+                    "isbn13": "9780545349208"
+                },
+                {
+                    "isbn10": "0545349249",
+                    "isbn13": "9780545349246"
+                },
+                {
+                    "isbn10": "0545349230",
+                    "isbn13": "9780545349239"
+                },
+                {
+                    "isbn10": "0545349192",
+                    "isbn13": "9780545349192"
+                },
+                {
+                    "isbn10": "0545349222",
+                    "isbn13": "9780545349222"
+                },
+                {
+                    "isbn10": "0545349257",
+                    "isbn13": "9780545349253"
+                },
+                {
+                    "isbn10": "0545349184",
+                    "isbn13": "9780545349185"
+                },
+                {
+                    "isbn10": "0545685346",
+                    "isbn13": "9780545685344"
+                },
+                {
+                    "isbn10": "0545685370",
+                    "isbn13": "9780545685375"
+                },
+                {
+                    "isbn10": "0545349273",
+                    "isbn13": "9780545349277"
+                },
+                {
+                    "isbn10": "0545685443",
+                    "isbn13": "9780545685443"
+                },
+                {
+                    "isbn10": "054568546X",
+                    "isbn13": "9780545685467"
+                },
+                {
+                    "isbn10": "0545855721",
+                    "isbn13": "9780545855723"
+                },
+                {
+                    "isbn10": "1338053612",
+                    "isbn13": "9781338053616"
+                },
+                {
+                    "isbn10": "1338053647",
+                    "isbn13": "9781338053647"
+                },
+                {
+                    "isbn10": "0545685362",
+                    "isbn13": "9780545685368"
+                },
+                {
+                    "isbn10": "0545685400",
+                    "isbn13": "9780545685405"
+                },
+                {
+                    "isbn10": "0545685427",
+                    "isbn13": "9780545685429"
+                },
+                {
+                    "isbn10": "0545685397",
+                    "isbn13": "9780545685399"
+                },
+                {
+                    "isbn10": "0545685478",
+                    "isbn13": "9780545685474"
+                },
+                {
+                    "isbn10": "0545685494",
+                    "isbn13": "9780545685498"
+                },
+                {
+                    "isbn10": "0545685451",
+                    "isbn13": "9780545685450"
+                },
+                {
+                    "isbn10": "1338053620",
+                    "isbn13": "9781338053623"
+                },
+                {
+                    "isbn10": "0545942160",
+                    "isbn13": "9780545942164"
+                },
+                {
+                    "isbn10": "1338214438",
+                    "isbn13": "9781338214437"
+                },
+                {
+                    "isbn10": "1338214462",
+                    "isbn13": "9781338214468"
+                },
+                {
+                    "isbn10": "0545685435",
+                    "isbn13": "9780545685436"
+                },
+                {
+                    "isbn10": "1338214489",
+                    "isbn13": "9781338214482"
+                },
+                {
+                    "isbn10": "0545685486",
+                    "isbn13": "9780545685481"
+                },
+                {
+                    "isbn10": "0545942209",
+                    "isbn13": "9780545942201"
+                },
+                {
+                    "isbn10": "0545942217",
+                    "isbn13": "9780545942218"
+                },
+                {
+                    "isbn10": "0545443172",
+                    "isbn13": "9780545443173"
+                },
+                {
+                    "isbn10": "1338214519",
+                    "isbn13": "9781338214512"
+                },
+                {
+                    "isbn10": "0545486033",
+                    "isbn13": "9780545486033"
+                },
+                {
+                    "isbn10": "1338344056",
+                    "isbn13": "9781338344059"
+                },
+                {
+                    "isbn10": "1338344064",
+                    "isbn13": "9781338344066"
+                },
+                {
+                    "isbn10": "1338598899",
+                    "isbn13": "9781338598896"
+                },
+                {
+                    "isbn10": "0545957796",
+                    "isbn13": "9780545957793"
+                },
+                {
+                    "isbn10": "1338214446",
+                    "isbn13": "9781338214444"
+                },
+                {
+                    "isbn10": "1338214497",
+                    "isbn13": "9781338214499"
+                },
+                {
+                    "isbn10": "1432874497",
+                    "isbn13": "9781432874490"
+                },
+                {
+                    "isbn10": "1338732390",
+                    "isbn13": "9781338732399"
+                },
+                {
+                    "isbn10": "1338214543",
+                    "isbn13": "9781338214543"
+                },
+                {
+                    "isbn10": "1338214527",
+                    "isbn13": "9781338214529"
+                },
+                {
+                    "isbn10": "1338214578",
+                    "isbn13": "9781338214574"
+                },
+                {
+                    "isbn10": "1338214551",
+                    "isbn13": "9781338214550"
+                },
+                {
+                    "isbn10": "1338883194",
+                    "isbn13": "9781338883190"
+                },
+                {
+                    "isbn10": "1338883208",
+                    "isbn13": "9781338883206"
+                },
+                {
+                    "isbn10": "1338883321",
+                    "isbn13": "9781338883329"
+                },
+                {
+                    "isbn10": "1338883216",
+                    "isbn13": "9781338883213"
+                },
+                {
+                    "isbn10": "1546138773",
+                    "isbn13": "9781546138778"
+                },
+                {
+                    "isbn10": "1338214586",
+                    "isbn13": "9781338214581"
+                }
+            ],
+            "ranks_history": [
+                {
+                    "primary_isbn10": "1546138773",
+                    "primary_isbn13": "9781546138778",
+                    "rank": 10,
+                    "list_name": "Series Books",
+                    "display_name": "Children\u2019s & Young Adult Series",
+                    "published_date": "2024-12-29",
+                    "bestsellers_date": "2024-12-14",
+                    "weeks_on_list": 223,
+                    "rank_last_week": 0,
+                    "asterisk": 0,
+                    "dagger": 0
+                },
+                {
+                    "primary_isbn10": "1546138773",
+                    "primary_isbn13": "9781546138778",
+                    "rank": 7,
+                    "list_name": "Series Books",
+                    "display_name": "Children\u2019s & Young Adult Series",
+                    "published_date": "2024-12-08",
+                    "bestsellers_date": "2024-11-23",
+                    "weeks_on_list": 222,
+                    "rank_last_week": 10,
+                    "asterisk": 0,
+                    "dagger": 0
+                },
+                {
+                    "primary_isbn10": "1546138773",
+                    "primary_isbn13": "9781546138778",
+                    "rank": 10,
+                    "list_name": "Series Books",
+                    "display_name": "Children\u2019s & Young Adult Series",
+                    "published_date": "2024-12-01",
+                    "bestsellers_date": "2024-11-16",
+                    "weeks_on_list": 221,
+                    "rank_last_week": 0,
+                    "asterisk": 0,
+                    "dagger": 0
+                },
+                {
+                    "primary_isbn10": "1546138773",
+                    "primary_isbn13": "9781546138778",
+                    "rank": 8,
+                    "list_name": "Series Books",
+                    "display_name": "Children\u2019s & Young Adult Series",
+                    "published_date": "2024-11-17",
+                    "bestsellers_date": "2024-11-02",
+                    "weeks_on_list": 220,
+                    "rank_last_week": 10,
+                    "asterisk": 0,
+                    "dagger": 0
+                },
+                {
+                    "primary_isbn10": "1546138773",
+                    "primary_isbn13": "9781546138778",
+                    "rank": 10,
+                    "list_name": "Series Books",
+                    "display_name": "Children\u2019s & Young Adult Series",
+                    "published_date": "2024-11-10",
+                    "bestsellers_date": "2024-10-26",
+                    "weeks_on_list": 219,
+                    "rank_last_week": 9,
+                    "asterisk": 0,
+                    "dagger": 0
+                },
+                {
+                    "primary_isbn10": "1546138773",
+                    "primary_isbn13": "9781546138778",
+                    "rank": 9,
+                    "list_name": "Series Books",
+                    "display_name": "Children\u2019s & Young Adult Series",
+                    "published_date": "2024-11-03",
+                    "bestsellers_date": "2024-10-19",
+                    "weeks_on_list": 218,
+                    "rank_last_week": 0,
+                    "asterisk": 0,
+                    "dagger": 0
+                },
+                {
+                    "primary_isbn10": "1546138773",
+                    "primary_isbn13": "9781546138778",
+                    "rank": 5,
+                    "list_name": "Series Books",
+                    "display_name": "Children\u2019s & Young Adult Series",
+                    "published_date": "2024-10-20",
+                    "bestsellers_date": "2024-10-05",
+                    "weeks_on_list": 217,
+                    "rank_last_week": 0,
+                    "asterisk": 0,
+                    "dagger": 0
+                }
+            ],
+            "reviews": [
+                {
+                    "book_review_link": "",
+                    "first_chapter_link": "",
+                    "sunday_review_link": "",
+                    "article_chapter_link": ""
+                }
+            ]
+        },
+        {
+            "title": "WINGS OF FIRE: A GUIDE TO THE DRAGON WORLD",
+            "description": "A deeper dive into the legends of the 10 dragon tribes. (Ages 8 to 12)",
+            "contributor": "by Tui T. Sutherland. Illustrated by Joy Ang",
+            "author": "Tui T. Sutherland.",
+            "contributor_note": "Illustrated by Joy Ang",
+            "price": "0.00",
+            "age_group": "Ages 8 to 12",
+            "publisher": "Scholastic",
+            "isbns": [
+                {
+                    "isbn10": "1338634828",
+                    "isbn13": "9781338634822"
+                }
+            ],
+            "ranks_history": [
+                {
+                    "primary_isbn10": "1338634828",
+                    "primary_isbn13": "9781338634822",
+                    "rank": 10,
+                    "list_name": "Childrens Middle Grade Hardcover",
+                    "display_name": "Children\u2019s Middle Grade Hardcover",
+                    "published_date": "2025-03-30",
+                    "bestsellers_date": "2025-03-15",
+                    "weeks_on_list": 53,
+                    "rank_last_week": 10,
+                    "asterisk": 0,
+                    "dagger": 0
+                },
+                {
+                    "primary_isbn10": "1338634828",
+                    "primary_isbn13": "9781338634822",
+                    "rank": 10,
+                    "list_name": "Childrens Middle Grade Hardcover",
+                    "display_name": "Children\u2019s Middle Grade Hardcover",
+                    "published_date": "2025-03-23",
+                    "bestsellers_date": "2025-03-08",
+                    "weeks_on_list": 52,
+                    "rank_last_week": 0,
+                    "asterisk": 0,
+                    "dagger": 0
+                },
+                {
+                    "primary_isbn10": "1338634828",
+                    "primary_isbn13": "9781338634822",
+                    "rank": 10,
+                    "list_name": "Childrens Middle Grade Hardcover",
+                    "display_name": "Children\u2019s Middle Grade Hardcover",
+                    "published_date": "2025-03-09",
+                    "bestsellers_date": "2025-02-22",
+                    "weeks_on_list": 51,
+                    "rank_last_week": 0,
+                    "asterisk": 0,
+                    "dagger": 0
+                },
+                {
+                    "primary_isbn10": "1338634828",
+                    "primary_isbn13": "9781338634822",
+                    "rank": 4,
+                    "list_name": "Childrens Middle Grade Hardcover",
+                    "display_name": "Children\u2019s Middle Grade Hardcover",
+                    "published_date": "2025-01-19",
+                    "bestsellers_date": "2025-01-04",
+                    "weeks_on_list": 50,
+                    "rank_last_week": 7,
+                    "asterisk": 0,
+                    "dagger": 0
+                },
+                {
+                    "primary_isbn10": "1338634828",
+                    "primary_isbn13": "9781338634822",
+                    "rank": 7,
+                    "list_name": "Childrens Middle Grade Hardcover",
+                    "display_name": "Children\u2019s Middle Grade Hardcover",
+                    "published_date": "2025-01-12",
+                    "bestsellers_date": "2024-12-28",
+                    "weeks_on_list": 49,
+                    "rank_last_week": 10,
+                    "asterisk": 0,
+                    "dagger": 0
+                },
+                {
+                    "primary_isbn10": "1338634828",
+                    "primary_isbn13": "9781338634822",
+                    "rank": 10,
+                    "list_name": "Childrens Middle Grade Hardcover",
+                    "display_name": "Children\u2019s Middle Grade Hardcover",
+                    "published_date": "2025-01-05",
+                    "bestsellers_date": "2024-12-21",
+                    "weeks_on_list": 48,
+                    "rank_last_week": 0,
+                    "asterisk": 0,
+                    "dagger": 0
+                }
+            ],
+            "reviews": [
+                {
+                    "book_review_link": "",
+                    "first_chapter_link": "",
+                    "sunday_review_link": "",
+                    "article_chapter_link": ""
+                }
+            ]
+        },
+        {
+            "title": "WINGS OF FIRE: LEGENDS: DRAGONSLAYER",
+            "description": "Ivy, Leaf and Wren fight for the survival of the human race against dragons.",
+            "contributor": "by Tui T. Sutherland",
+            "author": "Tui T. Sutherland",
+            "contributor_note": "",
+            "price": "0.00",
+            "age_group": "",
+            "publisher": "Scholastic",
+            "isbns": [
+                {
+                    "isbn10": "1338214608",
+                    "isbn13": "9781338214604"
+                }
+            ],
+            "ranks_history": [],
+            "reviews": [
+                {
+                    "book_review_link": "",
+                    "first_chapter_link": "",
+                    "sunday_review_link": "",
+                    "article_chapter_link": ""
+                }
+            ]
+        },
+        {
+            "title": "WINGS OF STARLIGHT",
+            "description": "Clarion, the successor to the throne of Pixie Hollow, is determined to confront a monster that threatens the land. (Ages 12 to 18)",
+            "contributor": "by Allison Saft",
+            "author": "Allison Saft",
+            "contributor_note": "",
+            "price": "0.00",
+            "age_group": "Ages 12 to 18",
+            "publisher": "Disney",
+            "isbns": [
+                {
+                    "isbn10": "1368098452",
+                    "isbn13": "9781368098458"
+                }
+            ],
+            "ranks_history": [
+                {
+                    "primary_isbn10": "1368098452",
+                    "primary_isbn13": "9781368098458",
+                    "rank": 1,
+                    "list_name": "Young Adult Hardcover",
+                    "display_name": "Young Adult Hardcover",
+                    "published_date": "2025-04-06",
+                    "bestsellers_date": "2025-03-22",
+                    "weeks_on_list": 7,
+                    "rank_last_week": 7,
+                    "asterisk": 0,
+                    "dagger": 0
+                },
+                {
+                    "primary_isbn10": "1368098452",
+                    "primary_isbn13": "9781368098458",
+                    "rank": 7,
+                    "list_name": "Young Adult Hardcover",
+                    "display_name": "Young Adult Hardcover",
+                    "published_date": "2025-03-30",
+                    "bestsellers_date": "2025-03-15",
+                    "weeks_on_list": 6,
+                    "rank_last_week": 7,
+                    "asterisk": 0,
+                    "dagger": 0
+                },
+                {
+                    "primary_isbn10": "1368098452",
+                    "primary_isbn13": "9781368098458",
+                    "rank": 7,
+                    "list_name": "Young Adult Hardcover",
+                    "display_name": "Young Adult Hardcover",
+                    "published_date": "2025-03-23",
+                    "bestsellers_date": "2025-03-08",
+                    "weeks_on_list": 5,
+                    "rank_last_week": 4,
+                    "asterisk": 0,
+                    "dagger": 0
+                },
+                {
+                    "primary_isbn10": "1368098452",
+                    "primary_isbn13": "9781368098458",
+                    "rank": 4,
+                    "list_name": "Young Adult Hardcover",
+                    "display_name": "Young Adult Hardcover",
+                    "published_date": "2025-03-16",
+                    "bestsellers_date": "2025-03-01",
+                    "weeks_on_list": 4,
+                    "rank_last_week": 2,
+                    "asterisk": 0,
+                    "dagger": 0
+                },
+                {
+                    "primary_isbn10": "1368098452",
+                    "primary_isbn13": "9781368098458",
+                    "rank": 2,
+                    "list_name": "Young Adult Hardcover",
+                    "display_name": "Young Adult Hardcover",
+                    "published_date": "2025-03-09",
+                    "bestsellers_date": "2025-02-22",
+                    "weeks_on_list": 3,
+                    "rank_last_week": 1,
+                    "asterisk": 0,
+                    "dagger": 0
+                },
+                {
+                    "primary_isbn10": "1368098452",
+                    "primary_isbn13": "9781368098458",
+                    "rank": 1,
+                    "list_name": "Young Adult Hardcover",
+                    "display_name": "Young Adult Hardcover",
+                    "published_date": "2025-03-02",
+                    "bestsellers_date": "2025-02-15",
+                    "weeks_on_list": 2,
+                    "rank_last_week": 1,
+                    "asterisk": 0,
+                    "dagger": 0
+                },
+                {
+                    "primary_isbn10": "1368098452",
+                    "primary_isbn13": "9781368098458",
+                    "rank": 1,
+                    "list_name": "Young Adult Hardcover",
+                    "display_name": "Young Adult Hardcover",
+                    "published_date": "2025-02-23",
+                    "bestsellers_date": "2025-02-08",
+                    "weeks_on_list": 1,
+                    "rank_last_week": 0,
+                    "asterisk": 0,
+                    "dagger": 0
+                }
+            ],
+            "reviews": [
+                {
+                    "book_review_link": "",
+                    "first_chapter_link": "",
+                    "sunday_review_link": "",
+                    "article_chapter_link": ""
+                }
+            ]
+        },
+        {
+            "title": "Wingtips: Stories by Avery Chenoweth (Johns Hopkins: Poetry and Fiction)",
+            "description": null,
+            "contributor": null,
+            "author": "Mr. Avery Chenoweth MFA",
+            "contributor_note": null,
+            "price": "0.00",
+            "age_group": null,
+            "publisher": null,
+            "isbns": [
+                {
+                    "isbn10": "0801860237",
+                    "isbn13": "9780801860232"
+                }
+            ],
+            "ranks_history": [],
+            "reviews": [
+                {
+                    "book_review_link": "",
+                    "first_chapter_link": null,
+                    "sunday_review_link": "https:\/\/www.nytimes.com\/1999\/03\/07\/books\/books-in-brief-fiction-518050.html",
+                    "article_chapter_link": null
+                }
+            ]
+        },
+        {
+            "title": "Winifred Wagner: A Life at the Heart of Hitler's Bayreuth",
+            "description": null,
+            "contributor": null,
+            "author": "Brigitte Hamann",
+            "contributor_note": null,
+            "price": "0.00",
+            "age_group": null,
+            "publisher": null,
+            "isbns": [
+                {
+                    "isbn10": "015101308X",
+                    "isbn13": "9780151013081"
+                }
+            ],
+            "ranks_history": [],
+            "reviews": [
+                {
+                    "book_review_link": "",
+                    "first_chapter_link": null,
+                    "sunday_review_link": "https:\/\/www.nytimes.com\/2007\/03\/11\/books\/review\/Wheatcroft.t.html",
+                    "article_chapter_link": null
+                }
+            ]
+        },
+        {
+            "title": "WINNER TAKE ALL",
+            "description": "An economist considers the global implications of China\u2019s quest for metal and minerals, timber and food.",
+            "contributor": "by Dambisa Moyo",
+            "author": "Dambisa Moyo",
+            "contributor_note": "",
+            "price": "26.00",
+            "age_group": "",
+            "publisher": "Basic Books",
+            "isbns": [
+                {
+                    "isbn10": "0465028284",
+                    "isbn13": "9780465028283"
+                }
+            ],
+            "ranks_history": [],
+            "reviews": [
+                {
+                    "book_review_link": "",
+                    "first_chapter_link": "",
+                    "sunday_review_link": "",
+                    "article_chapter_link": ""
+                }
+            ]
+        },
+        {
+            "title": "WINNER'S TRILOGY",
+            "description": "War and the empire interfere with Kestrel and Arin's alternating affections.",
+            "contributor": "by Marie Rutkoski",
+            "author": "Marie Rutkoski",
+            "contributor_note": "",
+            "price": "0.00",
+            "age_group": "",
+            "publisher": "Farrar, Straus & Giroux",
+            "isbns": [
+                {
+                    "isbn10": "0374384746",
+                    "isbn13": "9780374384746"
+                },
+                {
+                    "isbn10": "0374384738",
+                    "isbn13": "9780374384739"
+                },
+                {
+                    "isbn10": "1250056977",
+                    "isbn13": "9781250056979"
+                },
+                {
+                    "isbn10": "0374384673",
+                    "isbn13": "9780374384678"
+                }
+            ],
+            "ranks_history": [],
+            "reviews": [
+                {
+                    "book_review_link": "",
+                    "first_chapter_link": "",
+                    "sunday_review_link": "",
+                    "article_chapter_link": ""
+                }
+            ]
+        },
+        {
+            "title": "WINNER-TAKE-ALL POLITICS",
+            "description": "Growing inequality as a result not of globalization but of policies that fail to protect the middle class.",
+            "contributor": "by Jacob S. Hacker and Paul Pierson",
+            "author": "Jacob S Hacker and Paul Pierson",
+            "contributor_note": "",
+            "price": "0.00",
+            "age_group": "",
+            "publisher": "Simon & Schuster",
+            "isbns": [
+                {
+                    "isbn10": "1416588701",
+                    "isbn13": "9781416588702"
+                },
+                {
+                    "isbn10": "1416593845",
+                    "isbn13": "9781416593843"
+                }
+            ],
+            "ranks_history": [],
+            "reviews": [
+                {
+                    "book_review_link": "",
+                    "first_chapter_link": "",
+                    "sunday_review_link": "",
+                    "article_chapter_link": ""
+                }
+            ]
+        },
+        {
+            "title": "WINNERS",
+            "description": "Six people with intertwined lives \u2014 among them an aspiring Olympic skier who is gravely injured \u2014 struggle to surmount challenges.",
+            "contributor": "by Danielle Steel",
+            "author": "Danielle Steel",
+            "contributor_note": "",
+            "price": "0.00",
+            "age_group": "",
+            "publisher": "Dell",
+            "isbns": [
+                {
+                    "isbn10": "0385343221",
+                    "isbn13": "9780385343220"
+                },
+                {
+                    "isbn10": "0345539680",
+                    "isbn13": "9780345539687"
+                },
+                {
+                    "isbn10": "0804121052",
+                    "isbn13": "9780804121057"
+                },
+                {
+                    "isbn10": "0440245257",
+                    "isbn13": "9780440245254"
+                }
+            ],
+            "ranks_history": [],
+            "reviews": [
+                {
+                    "book_review_link": "",
+                    "first_chapter_link": "",
+                    "sunday_review_link": "",
+                    "article_chapter_link": ""
+                }
+            ]
+        },
+        {
+            "title": "WINNERS TAKE ALL",
+            "description": "The former New York Times columnist examines the new gilded age and the failures of modern philanthropy.",
+            "contributor": "by Anand Giridharadas",
+            "author": "Anand Giridharadas",
+            "contributor_note": "",
+            "price": "0.00",
+            "age_group": "",
+            "publisher": "Vintage",
+            "isbns": [
+                {
+                    "isbn10": "0451493249",
+                    "isbn13": "9780451493248"
+                },
+                {
+                    "isbn10": "0451493257",
+                    "isbn13": "9780451493255"
+                },
+                {
+                    "isbn10": "110197267X",
+                    "isbn13": "9781101972670"
+                }
+            ],
+            "ranks_history": [],
+            "reviews": [
+                {
+                    "book_review_link": "https:\/\/www.nytimes.com\/2018\/08\/20\/books\/review\/winners-take-all-anand-giridharadas.html",
+                    "first_chapter_link": "",
+                    "sunday_review_link": "",
+                    "article_chapter_link": ""
+                }
+            ]
+        },
+        {
+            "title": "WINNING",
+            "description": "",
+            "contributor": "by Tim S. Grover with Shari Lesser Wenk",
+            "author": "Tim S. Grover with Shari Lesser Wenk",
+            "contributor_note": "",
+            "price": "0.00",
+            "age_group": "",
+            "publisher": "Scribner",
+            "isbns": [
+                {
+                    "isbn10": "1982168862",
+                    "isbn13": "9781982168865"
+                },
+                {
+                    "isbn10": "1982168889",
+                    "isbn13": "9781982168889"
+                }
+            ],
+            "ranks_history": [],
+            "reviews": [
+                {
+                    "book_review_link": "",
+                    "first_chapter_link": "",
+                    "sunday_review_link": "",
+                    "article_chapter_link": ""
+                }
+            ]
+        },
+        {
+            "title": "WINNING BALANCE",
+            "description": "",
+            "contributor": "by Shawn Johnson with Nancy French",
+            "author": "Shawn Johnson with Nancy French",
+            "contributor_note": "",
+            "price": "0.00",
+            "age_group": "",
+            "publisher": "Tyndale Momentum",
+            "isbns": [
+                {
+                    "isbn10": "1414372108",
+                    "isbn13": "9781414372105"
+                }
+            ],
+            "ranks_history": [],
+            "reviews": [
+                {
+                    "book_review_link": "",
+                    "first_chapter_link": "",
+                    "sunday_review_link": "",
+                    "article_chapter_link": ""
+                }
+            ]
+        },
+        {
+            "title": "WINNING FROM WITHIN",
+            "description": "How you get in your own way and what to do about it.",
+            "contributor": "by Erica Ariel Fox",
+            "author": "Erica Ariel Fox",
+            "contributor_note": "",
+            "price": "0.00",
+            "age_group": "",
+            "publisher": "HarperBusiness",
+            "isbns": [
+                {
+                    "isbn10": "0062213024",
+                    "isbn13": "9780062213020"
+                }
+            ],
+            "ranks_history": [],
+            "reviews": [
+                {
+                    "book_review_link": "",
+                    "first_chapter_link": "",
+                    "sunday_review_link": "",
+                    "article_chapter_link": ""
+                }
+            ]
+        },
+        {
+            "title": "WINNING THE WALLFLOWER",
+            "description": "When an awkward girl receives an inheritance, she must re-evaluate the engagement her parents arranged for her.",
+            "contributor": "by Eloisa James",
+            "author": "Eloisa James",
+            "contributor_note": "",
+            "price": "0.00",
+            "age_group": "",
+            "publisher": "HarperCollins Publishers",
+            "isbns": [
+                {
+                    "isbn10": "0062191829",
+                    "isbn13": "9780062191823"
+                }
+            ],
+            "ranks_history": [],
+            "reviews": [
+                {
+                    "book_review_link": "",
+                    "first_chapter_link": "",
+                    "sunday_review_link": "",
+                    "article_chapter_link": ""
+                }
+            ]
+        }
+    ]
+}
