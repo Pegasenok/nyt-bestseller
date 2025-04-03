@@ -5,9 +5,11 @@ namespace App\Services;
 use App\DTO\BestSellerRequestDto;
 use App\DTO\BookResult;
 use App\Exceptions\ApiPreconditionException;
+use App\Exceptions\SomethingWrongException;
 use Exception;
 use GuzzleHttp\Promise\PromiseInterface;
 use Illuminate\Http\Client\PendingRequest;
+use Illuminate\Http\Client\RequestException;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 
@@ -27,8 +29,10 @@ class NytBestSellerService implements BestSellerInterface
                     'offset' => $dto->offset,
                 ])
                 ->throw();
+        } catch (RequestException $e) {
+            throw new ApiPreconditionException("Failed to fetch bestseller data. ".$e->getMessage(), $e->getCode(), $e);
         } catch (Exception $e) {
-            throw new ApiPreconditionException("Failed to fetch bestseller data: ".$e->getMessage(), $e->getCode(), $e);
+            throw new SomethingWrongException("Failed to fetch bestseller data.", $e->getCode(), $e);
         }
 
         $results = collect($this->processHttpResult($response))->map(function ($data) {

@@ -12,6 +12,7 @@ class BestSellerTest extends BestSellerBaseTestCase
     {
         parent::setUp();
 
+        config(['services.nyt.cache.enabled' => true]);
         Cache::flush();
     }
 
