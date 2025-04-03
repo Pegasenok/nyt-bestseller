@@ -25,6 +25,7 @@ class Handler extends ExceptionHandler
     public function register(): void
     {
         $this->renderable(function (Throwable $e) {
+            // do not catch exceptions that are properly rendered by framework elsewhere
             if ($e instanceof ValidationException) {
                 return null;
             }

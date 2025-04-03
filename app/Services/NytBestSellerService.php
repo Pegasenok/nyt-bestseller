@@ -5,6 +5,7 @@ namespace App\Services;
 use App\DTO\BestSellerRequestDto;
 use App\DTO\BookResult;
 use App\Exceptions\ApiPreconditionException;
+use App\Exceptions\ExternalApiViolationException;
 use App\Exceptions\SomethingWrongException;
 use Exception;
 use GuzzleHttp\Promise\PromiseInterface;
@@ -30,6 +31,9 @@ class NytBestSellerService implements BestSellerInterface
                 ])
                 ->throw();
         } catch (RequestException $e) {
+            if ($e->getCode() === 429) {
+                throw new ExternalApiViolationException("Failed to fetch bestseller data.", $e);
+            }
             throw new ApiPreconditionException("Failed to fetch bestseller data. ".$e->getMessage(), $e->getCode(), $e);
         } catch (Exception $e) {
             throw new SomethingWrongException("Failed to fetch bestseller data.", $e->getCode(), $e);
