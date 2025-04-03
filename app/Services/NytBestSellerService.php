@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\DTO\BestSellerRequestDto;
 use App\DTO\BookResult;
 use App\Exceptions\ApiPreconditionException;
 use Exception;
@@ -15,10 +16,17 @@ class NytBestSellerService implements BestSellerInterface
     /**
      * @throws ApiPreconditionException
      */
-    public function getBestSellerResults(): array
+    public function getBestSellerResults(BestSellerRequestDto $dto): array
     {
         try {
-            $response = $this->getNytHttp()->get(self::LISTS_BEST_SELLERS_HISTORY_ENDPOINT)->throw();
+            $response = $this->getNytHttp()
+                ->get(self::LISTS_BEST_SELLERS_HISTORY_ENDPOINT, [
+                    'author' => $dto->author,
+                    'isbn' => $this->normalizeIsbn($dto),
+                    'title' => $dto->title,
+                    'offset' => $dto->offset,
+                ])
+                ->throw();
         } catch (Exception $e) {
             throw new ApiPreconditionException("Failed to fetch bestseller data: ".$e->getMessage(), $e->getCode(), $e);
         }
@@ -57,5 +65,10 @@ class NytBestSellerService implements BestSellerInterface
         }
 
         return $json['results'];
+    }
+
+    public function normalizeIsbn(BestSellerRequestDto $dto): ?string
+    {
+        return $dto->isbn ? implode(',', $dto->isbn) : null;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\DTO\BestSellerRequestDto;
 use App\Exceptions\ApiPreconditionException;
 use App\Exceptions\TooManyAttemptsException;
 
@@ -12,7 +13,6 @@ interface BestSellerInterface
     /**
      * @throws ApiPreconditionException
      * @throws TooManyAttemptsException
-     * todo parameters
      */
-    public function getBestSellerResults(): array;
+    public function getBestSellerResults(BestSellerRequestDto $dto): array;
 }

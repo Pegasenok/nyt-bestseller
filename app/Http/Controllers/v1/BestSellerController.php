@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\v1;
 
+use App\DTO\BestSellerRequestDto;
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\ApiVersion;
 use App\Http\Requests\BestSellerRequest;
@@ -14,13 +15,18 @@ class BestSellerController extends Controller
         BestSellerRequest $request,
         BestSellerInterface $bestSellerService
     ): JsonResponse {
-        $offset = $request->integer('offset');
-        $results = $bestSellerService->getBestSellerResults();
+        $results = $bestSellerService->getBestSellerResults(
+            new BestSellerRequestDto(
+                offset: $request->validated('offset'),
+                isbn: $request->validated('isbn'),
+                title: $request->validated('title'),
+                author: $request->validated('author'),
+            )
+        );
 
         return response()->json(
             [
                 'success' => true,
-                'offset' => $offset,
                 'results' => $results,
                 'version' => ApiVersion::getVersion(),
             ]
