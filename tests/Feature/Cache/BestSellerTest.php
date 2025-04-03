@@ -1,11 +1,8 @@
 <?php
 
-namespace Tests\Feature\Isbn;
+namespace Tests\Feature\Cache;
 
-use App\Services\BestSellerInterface;
-use App\Services\FakeHttpService;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\RateLimiter;
 use Tests\Feature\BestSellerBaseTestCase;
 
 class BestSellerTest extends BestSellerBaseTestCase

@@ -2,22 +2,11 @@
 
 namespace Tests\Feature\Validation;
 
-use App\Services\BestSellerInterface;
-use App\Services\FakeHttpService;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\RateLimiter;
-use Tests\TestCase;
+use Tests\Feature\BestSellerBaseTestCase;
 
-class BestSellerTest extends TestCase
+class BestSellerTest extends BestSellerBaseTestCase
 {
-    public static function tearDownAfterClass(): void
-    {
-        parent::tearDownAfterClass();
-
-        RateLimiter::clear(BestSellerInterface::LISTS_BEST_SELLERS_HISTORY_ENDPOINT.':minute');
-        RateLimiter::clear(BestSellerInterface::LISTS_BEST_SELLERS_HISTORY_ENDPOINT.':day');
-    }
-
     /**
      * A basic test example.
      */
@@ -38,16 +27,34 @@ class BestSellerTest extends TestCase
             ->assertSeeText('must be a valid International Standard Book Number (ISBN)');
         Http::assertNothingSent();
 
-        $this->get('/api/v1/best-seller?isbn[]=9781524763138&isbn[]=1234567890&isbn[]=9781442444928', ['Accept' => 'application/json'])
+        $this->get('/api/v1/best-seller?isbn[]=9781524763138&isbn[]=1234567890&isbn[]=9781442444928',
+            ['Accept' => 'application/json'])
             ->assertUnprocessable()
             ->assertSeeText('must be a valid International Standard Book Number (ISBN)');
         Http::assertNothingSent();
     }
 
-    protected function setUp(): void
-    {
-        parent::setUp();
 
-        FakeHttpService::fakeNytBestSellerHistory();
+    public function test_validation_offset()
+    {
+        $this->get('/api/v1/best-seller', ['Accept' => 'application/json'])
+            ->assertHeader('Content-Type', 'application/json')
+            ->assertSuccessful();
+
+        $this->get('/api/v1/best-seller?offset=0', ['Accept' => 'application/json'])
+            ->assertSuccessful();
+
+        $this->get('/api/v1/best-seller?offset=40', ['Accept' => 'application/json'])
+            ->assertSuccessful();
+
+        $this->get('/api/v1/best-seller?offset=a', ['Accept' => 'application/json'])
+            ->assertUnprocessable();
+
+        $this->get('/api/v1/best-seller?offset=35', ['Accept' => 'application/json'])
+            ->assertUnprocessable();
+
+        // when not application/json, Laravel defaults to redirect
+        $this->get('/api/v1/best-seller?offset=a')
+            ->assertRedirect();
     }
 }

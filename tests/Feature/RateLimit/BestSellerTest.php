@@ -1,45 +1,15 @@
 <?php
 
-namespace Tests\Controllers;
+namespace Tests\Feature\RateLimit;
 
 use App\Services\BestSellerInterface;
 use App\Services\FakeHttpService;
 use Illuminate\Support\Facades\RateLimiter;
+use Tests\Feature\BestSellerBaseTestCase;
 use Tests\TestCase;
 
-class BestSellerTest extends TestCase
+class BestSellerTest extends BestSellerBaseTestCase
 {
-    public static function tearDownAfterClass(): void
-    {
-        parent::tearDownAfterClass();
-
-        RateLimiter::clear(BestSellerInterface::LISTS_BEST_SELLERS_HISTORY_ENDPOINT.':minute');
-        RateLimiter::clear(BestSellerInterface::LISTS_BEST_SELLERS_HISTORY_ENDPOINT.':day');
-    }
-
-    public function test_best_seller_offset_validation()
-    {
-        $this->get('/api/v1/best-seller', ['Accept' => 'application/json'])
-            ->assertHeader('Content-Type', 'application/json')
-            ->assertSuccessful();
-
-        $this->get('/api/v1/best-seller?offset=0', ['Accept' => 'application/json'])
-            ->assertSuccessful();
-
-        $this->get('/api/v1/best-seller?offset=40', ['Accept' => 'application/json'])
-            ->assertSuccessful();
-
-        $this->get('/api/v1/best-seller?offset=a', ['Accept' => 'application/json'])
-            ->assertUnprocessable();
-
-        $this->get('/api/v1/best-seller?offset=35', ['Accept' => 'application/json'])
-            ->assertUnprocessable();
-
-        // when not application/json, Laravel defaults to redirect
-        $this->get('/api/v1/best-seller?offset=a')
-            ->assertRedirect();
-    }
-
     public function test_best_seller_api_limits_minute()
     {
         RateLimiter::clear(BestSellerInterface::LISTS_BEST_SELLERS_HISTORY_ENDPOINT.':minute');
@@ -87,12 +57,5 @@ class BestSellerTest extends TestCase
 
         $this->get('/api/v1/best-seller', ['Accept' => 'application/json'])
             ->assertTooManyRequests();
-    }
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        FakeHttpService::fakeNytBestSellerHistory();
     }
 }
