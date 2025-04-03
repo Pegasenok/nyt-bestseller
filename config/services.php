@@ -38,7 +38,10 @@ return [
         'limits' => [
             'day' => 500,
             'minute' => 5,
-        ]
+        ],
+        'cache' => [
+            'enabled' => true,
+        ],
     ],
 
 ];

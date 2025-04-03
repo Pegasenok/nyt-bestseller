@@ -14,6 +14,7 @@ class BestSellerTest extends BestSellerBaseTestCase
     {
         RateLimiter::clear(BestSellerInterface::LISTS_BEST_SELLERS_HISTORY_ENDPOINT.':minute');
         config(['services.nyt.limits.minute' => 3]);
+        config(['services.nyt.cache.enabled' => false]);
 
         $this->get('/api/v1/best-seller', ['Accept' => 'application/json'])
             ->assertSuccessful();
@@ -37,6 +38,7 @@ class BestSellerTest extends BestSellerBaseTestCase
         RateLimiter::clear(BestSellerInterface::LISTS_BEST_SELLERS_HISTORY_ENDPOINT.':day');
         config(['services.nyt.limits.minute' => 3]);
         config(['services.nyt.limits.day' => 5]);
+        config(['services.nyt.cache.enabled' => false]);
 
         $this->get('/api/v1/best-seller', ['Accept' => 'application/json'])
             ->assertSuccessful();

@@ -14,4 +14,9 @@ class BestSellerRequestDto
         public ?string $author
     ) {
     }
+
+    public function cacheKey(string $prefix): string
+    {
+        return $prefix . ':' . md5(json_encode($this));
+    }
 }

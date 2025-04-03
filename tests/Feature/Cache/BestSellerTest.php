@@ -2,42 +2,48 @@
 
 namespace Tests\Feature\Cache;
 
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Tests\Feature\BestSellerBaseTestCase;
 
 class BestSellerTest extends BestSellerBaseTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        Cache::flush();
+    }
+
     /**
-     * A basic test example.
+     * todo add testing of Cache actual hits
      */
-    public function test_isbn_string(): void
+    public function test_best_seller_cache_http_requests(): void
     {
-        $this->get('/api/v1/best-seller?isbn=9781524763138', ['Accept' => 'application/json'])
-            ->assertSuccessful();
-
-        Http::assertSent(function ($request) {
-            return $request->method() === 'GET' &&
-                $request['isbn'] === '9781524763138';
-        });
-    }
-
-    public function test_isbn_array()
-    {
-        $this->get('/api/v1/best-seller?isbn[]=9781442444928', ['Accept' => 'application/json'])
+        $this->get('/api/v1/best-seller?offset=20', ['Accept' => 'application/json'])
             ->assertSuccessful();
         Http::assertSent(function ($request) {
-            return $request->method() === 'GET' &&
-                $request['isbn'] === '9781442444928';
+            return $request->method() === 'GET' && $request['offset'] === 20;
         });
-    }
 
-    public function test_isbn_array_conversion()
-    {
-        $this->get('/api/v1/best-seller?isbn[]=9781524763138&isbn[]=9781442444928', ['Accept' => 'application/json'])
+        $this->get('/api/v1/best-seller?offset=20', ['Accept' => 'application/json'])
+            ->assertSuccessful();
+        // only first http request registered
+        Http::assertSentCount(1);
+
+        $this->get('/api/v1/best-seller?offset=40', ['Accept' => 'application/json'])
             ->assertSuccessful();
         Http::assertSent(function ($request) {
-            return $request->method() === 'GET' &&
-                $request['isbn'] === '9781524763138,9781442444928';
+            return $request->method() === 'GET' && $request['offset'] === 40;
         });
+        // another http request registered
+        Http::assertSentCount(2);
+
+        $this->get('/api/v1/best-seller?offset=20', ['Accept' => 'application/json'])
+            ->assertSuccessful();
+        $this->get('/api/v1/best-seller?offset=40', ['Accept' => 'application/json'])
+            ->assertSuccessful();
+        // no more http requests registered (2 from previous calls)
+        Http::assertSentCount(2);
     }
 }
