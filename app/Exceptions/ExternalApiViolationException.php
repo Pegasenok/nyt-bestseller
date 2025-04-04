@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Log;
 use Symfony\Component\Uid\Uuid;
 use Symfony\Component\Uid\UuidV4;
 
+/**
+ * The request to an external API provider failed due to application configuration issues,
+ * such as invalid parameters, rate limits, or authorization errors.
+ * Avoid retrying the request; instead, log it with context as code modifications may be needed.
+ */
 class ExternalApiViolationException extends \Exception
 {
     private array $context;
