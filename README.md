@@ -18,6 +18,7 @@ sail stop
 ```bash
 # Xdebug - `sail debug test` does not properly connect, use direct command instead
 docker compose exec -it laravel.test ./vendor/bin/phpunit
+sail test --env=testing # without specifying env doesn't set it correctly
 ```
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
