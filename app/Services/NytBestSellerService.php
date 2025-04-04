@@ -15,9 +15,16 @@ use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
+use JsonSchema\Validator;
 
 class NytBestSellerService implements BestSellerInterface
 {
+    public function __construct(
+        private readonly Validator $validator,
+    ) {
+    }
+
     /**
      * todo error handling to separate service and redact sensitive api-key
      * @throws ExternalApiPreconditionException
@@ -66,23 +73,19 @@ class NytBestSellerService implements BestSellerInterface
      */
     private function processHttpResult(PromiseInterface|Response $response): array
     {
+        // Decode without associative array since the validator requires objects to remain as stdClass instances
+        $validationObject = json_decode($response->body(), false);
+        $this->validator->validate($validationObject, $this->getEndpointJsonSchema());
+
+        if (!$this->validator->isValid()) {
+            $errorString = "Malformed response from external API:\n";
+            array_map(function ($error) use (&$errorString) {
+                $errorString .= $error['property'].': '.$error['message']."\n";
+            }, $this->validator->getErrors());
+            throw new ExternalApiPreconditionException($errorString, $response);
+        }
+
         $json = $response->json();
-
-        if (!$json) {
-            throw new ExternalApiPreconditionException('Data is not a json', $response);
-        }
-
-        if (!isset($json['status'])) {
-            throw new ExternalApiPreconditionException('No status found.', $response);
-        }
-
-        if ($json['status'] !== 'OK') {
-            throw new ExternalApiPreconditionException('status is not OK.', $response);
-        }
-
-        if (!isset($json['results'])) {
-            throw new ExternalApiPreconditionException('No results found.', $response);
-        }
 
         return $json['results'];
     }
@@ -90,5 +93,10 @@ class NytBestSellerService implements BestSellerInterface
     public function normalizeIsbn(BestSellerRequestDto $dto): ?string
     {
         return $dto->isbn ? implode(',', $dto->isbn) : null;
+    }
+
+    public function getEndpointJsonSchema(): object
+    {
+        return json_decode(Storage::disk('resources')->get('schema/best-sellers-history.json'));
     }
 }

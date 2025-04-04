@@ -35,4 +35,59 @@ class BestSellerTest extends TestCase
         $result->assertBadRequest();
         $logSpy->shouldHaveReceived('critical')->once();
     }
+
+    /**
+     * Test JSON schema validation for various malformed HTTP responses from an external API.
+     *
+     * @dataProvider brokenSchemaDataProvider
+     */
+    public function test_broken_schema_with_data_provider(string $jsonFile, array $expectedTexts): void
+    {
+        FakeHttpService::fakeNytBestSellerHistoryCustom($jsonFile);
+        $logSpy = Log::spy();
+        $result = $this->get('/api/v1/best-seller', ['Accept' => 'application/json']);
+        $result->assertBadRequest();
+
+        foreach ($expectedTexts as $text) {
+            $result->assertSeeText($text);
+        }
+
+        $logSpy->shouldHaveReceived('critical')->once();
+    }
+
+    public static function brokenSchemaDataProvider(): array
+    {
+        return [
+            'invalid_status_value' => [
+                'jsonFile' => 'best-sellers-history-bug1.json',
+                'expectedTexts' => [
+                    'Malformed response',
+                    'status:'
+                ],
+            ],
+            'missing_required_fields' => [
+                'jsonFile' => 'best-sellers-history-bug2.json',
+                'expectedTexts' => [
+                    'Malformed response',
+                    'is required',
+                    'num_results'
+                ],
+            ],
+            'missing_isbns_in_result' => [
+                'jsonFile' => 'best-sellers-history-bug3.json',
+                'expectedTexts' => [
+                    'Malformed response',
+                    'results[3].isbns: The property isbns is required'
+                ],
+            ],
+            'incorrect_data_types' => [
+                'jsonFile' => 'best-sellers-history-bug4.json',
+                'expectedTexts' => [
+                    'Malformed response',
+                    'description: Integer value found, but a string or a null is required',
+                    'contributor: Boolean value found, but a string or a null is required',
+                ],
+            ],
+        ];
+    }
 }

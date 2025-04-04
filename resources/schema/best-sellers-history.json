@@ -1,0 +1,95 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "NYT Bestseller API Response Schema",
+    "description": "Schema for validating responses from the NYT Bestseller API",
+    "type": "object",
+    "properties": {
+        "status": {
+            "type": "string",
+            "description": "Status of the API response",
+            "enum": [
+                "OK"
+            ]
+        },
+        "copyright": {
+            "type": "string",
+            "description": "Copyright information"
+        },
+        "num_results": {
+            "type": "integer",
+            "description": "Number of results returned"
+        },
+        "results": {
+            "type": "array",
+            "description": "List of book results",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": ["string", "null"],
+                        "description": "The title of the book"
+                    },
+                    "description": {
+                        "type": ["string", "null"],
+                        "description": "A description of the book"
+                    },
+                    "contributor": {
+                        "type": ["string", "null"],
+                        "description": "The contributor information"
+                    },
+                    "author": {
+                        "type": ["string", "null"],
+                        "description": "The author of the book"
+                    },
+                    "contributor_note": {
+                        "type": ["string", "null"],
+                        "description": "Additional notes about contributors"
+                    },
+                    "price": {
+                        "type": ["integer", "null", "string"],
+                        "description": "The price of the book. TODO: openapi schema tells this is integer, but this is actually string"
+                    },
+                    "age_group": {
+                        "type": ["string", "null"],
+                        "description": "The target age group for the book"
+                    },
+                    "publisher": {
+                        "type": ["string", "null"],
+                        "description": "The publisher of the book"
+                    },
+                    "isbns": {
+                        "type": "array",
+                        "description": "List of ISBNs associated with this book",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "isbn10": {
+                                    "type": "string",
+                                    "description": "The 10-digit ISBN"
+                                },
+                                "isbn13": {
+                                    "type": "string",
+                                    "description": "The 13-digit ISBN"
+                                }
+                            },
+                            "required": [
+                                "isbn10",
+                                "isbn13"
+                            ]
+                        },
+                        "minItems": 0
+                    }
+                },
+                "required": [
+                    "title",
+                    "isbns"
+                ]
+            }
+        }
+    },
+    "required": [
+        "status",
+        "num_results",
+        "results"
+    ]
+}

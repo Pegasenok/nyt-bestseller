@@ -50,4 +50,17 @@ class FakeHttpService
             ]
         );
     }
+
+    public static function fakeNytBestSellerHistoryCustom($name): void
+    {
+        Http::fake(
+            [
+                /** @see resources/json */
+                FakeHttpService::getFakePath() => Http::response(
+                    Storage::disk('resources')->get("json/$name"),
+                    200
+                )
+            ]
+        );
+    }
 }
