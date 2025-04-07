@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Middleware\ApiVersion;
 use App\Http\Requests\BestSellerRequest;
 use App\Pipeline\CachedHttpCall;
+use App\Pipeline\ErrorHandlingCall;
 use App\Pipeline\LimitedCall;
 use App\Pipeline\NytHttpCall;
 use App\Services\BestSellerInterface;
@@ -29,6 +30,7 @@ class BestSellerController extends Controller
             ->through([
                 CachedHttpCall::class,
                 LimitedCall::class,
+                ErrorHandlingCall::class,
                 NytHttpCall::class,
             ])
             ->then(function ($data) {

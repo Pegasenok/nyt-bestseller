@@ -5,13 +5,8 @@ namespace App\Pipeline;
 use App\DTO\BookResult;
 use App\DTO\HttpAwareDtoInterface;
 use App\Exceptions\ExternalApiPreconditionException;
-use App\Exceptions\ExternalApiTemporaryException;
-use App\Exceptions\ExternalApiViolationException;
-use App\Exceptions\SomethingWrongException;
 use GuzzleHttp\Promise\PromiseInterface;
-use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Http\Client\PendingRequest;
-use Illuminate\Http\Client\RequestException;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
@@ -26,22 +21,11 @@ class NytHttpCall
 
     public function __invoke(HttpAwareDtoInterface $dto, \Closure $next)
     {
-        try {
-            $response = $this->getNytHttp()
-                ->get(
-                    $dto->getHttpEndpoint(),
-                    $dto->getHttpParameters()
-                )->throw();
-        } catch (RequestException $e) {
-            if ($e->response->clientError()) {
-                throw new ExternalApiViolationException("External error while fetching bestseller data.", $e);
-            }
-            throw new ExternalApiTemporaryException("Bestseller data unavailable.", $e);
-        } catch (ConnectionException $e) {
-            throw new ExternalApiTemporaryException("Bestseller data unavailable.", $e);
-        } catch (\Exception $e) {
-            throw new SomethingWrongException("Failed to fetch bestseller data.", $e->getCode(), $e);
-        }
+        $response = $this->getNytHttp()
+            ->get(
+                $dto->getHttpEndpoint(),
+                $dto->getHttpParameters()
+            )->throw();
 
         $results = collect($this->processHttpResult($response))->map(function ($data) {
             return BookResult::fromJson($data);
