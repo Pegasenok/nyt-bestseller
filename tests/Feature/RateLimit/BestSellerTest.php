@@ -10,29 +10,35 @@ use Tests\TestCase;
 
 class BestSellerTest extends BestSellerBaseTestCase
 {
-    public function test_best_seller_api_limits_minute()
+    /**
+     * @dataProvider versionDataProvider
+     */
+    public function test_best_seller_api_limits_minute(string $version)
     {
         RateLimiter::clear(BestSellerInterface::LISTS_BEST_SELLERS_HISTORY_ENDPOINT.':minute');
         config(['services.nyt.limits.minute' => 3]);
         config(['services.nyt.cache.enabled' => false]);
 
-        $this->get('/api/v1/best-seller', ['Accept' => 'application/json'])
+        $this->getBestSellerApi('best-seller', $version)
             ->assertSuccessful();
 
-        $this->get('/api/v1/best-seller', ['Accept' => 'application/json'])
+        $this->getBestSellerApi('best-seller', $version)
             ->assertSuccessful();
 
-        $this->get('/api/v1/best-seller', ['Accept' => 'application/json'])
+        $this->getBestSellerApi('best-seller', $version)
             ->assertSuccessful();
 
-        $this->get('/api/v1/best-seller', ['Accept' => 'application/json'])
+        $this->getBestSellerApi('best-seller', $version)
             ->assertTooManyRequests();
 
-        $this->get('/api/v1/best-seller', ['Accept' => 'application/json'])
+        $this->getBestSellerApi('best-seller', $version)
             ->assertTooManyRequests();
     }
 
-    public function test_best_seller_api_limits_day()
+    /**
+     * @dataProvider versionDataProvider
+     */
+    public function test_best_seller_api_limits_day(string $version)
     {
         RateLimiter::clear(BestSellerInterface::LISTS_BEST_SELLERS_HISTORY_ENDPOINT.':minute');
         RateLimiter::clear(BestSellerInterface::LISTS_BEST_SELLERS_HISTORY_ENDPOINT.':day');
@@ -40,24 +46,24 @@ class BestSellerTest extends BestSellerBaseTestCase
         config(['services.nyt.limits.day' => 5]);
         config(['services.nyt.cache.enabled' => false]);
 
-        $this->get('/api/v1/best-seller', ['Accept' => 'application/json'])
+        $this->getBestSellerApi('best-seller', $version)
             ->assertSuccessful();
 
-        $this->get('/api/v1/best-seller', ['Accept' => 'application/json'])
+        $this->getBestSellerApi('best-seller', $version)
             ->assertSuccessful();
 
-        $this->get('/api/v1/best-seller', ['Accept' => 'application/json'])
+        $this->getBestSellerApi('best-seller', $version)
             ->assertSuccessful();
 
         RateLimiter::clear(BestSellerInterface::LISTS_BEST_SELLERS_HISTORY_ENDPOINT.':minute');
 
-        $this->get('/api/v1/best-seller', ['Accept' => 'application/json'])
+        $this->getBestSellerApi('best-seller', $version)
             ->assertSuccessful();
 
-        $this->get('/api/v1/best-seller', ['Accept' => 'application/json'])
+        $this->getBestSellerApi('best-seller', $version)
             ->assertSuccessful();
 
-        $this->get('/api/v1/best-seller', ['Accept' => 'application/json'])
+        $this->getBestSellerApi('best-seller', $version)
             ->assertTooManyRequests();
     }
 }
