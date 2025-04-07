@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Intervention\Validation\Rules\Isbn;
 
-class BestSellerRequest extends FormRequest
+class BestSellerFormRequest extends FormRequest
 {
     public function authorize(): bool
     {

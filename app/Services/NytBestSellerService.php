@@ -47,9 +47,9 @@ class NytBestSellerService implements BestSellerInterface
             if ($e->response->clientError()) {
                 throw new ExternalApiViolationException("External error while fetching bestseller data.", $e);
             }
-            throw new ExternalApiTemporaryException("Bestseller data unavailable.", $e);
+            throw new ExternalApiTemporaryException("Bestseller data unavailable, retry in 5 minutes.", $e);
         } catch (ConnectionException $e) {
-            throw new ExternalApiTemporaryException("Bestseller data unavailable.", $e);
+            throw new ExternalApiTemporaryException("Bestseller data unavailable, retry in an hour.", $e);
         } catch (Exception $e) {
             throw new SomethingWrongException("Failed to fetch bestseller data.", $e->getCode(), $e);
         }

@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use GuzzleHttp\Exception\ConnectException;
+use GuzzleHttp\Promise\RejectedPromise;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
@@ -47,6 +49,15 @@ class FakeHttpService
                     Storage::disk('resources')->get('json/wrong-data.json'),
                     200
                 )
+            ]
+        );
+    }
+
+    public static function fakeNytBestSellerBrokenConnection(): void
+    {
+        Http::fake(
+            [
+                FakeHttpService::getFakePath() => fn($request) => new RejectedPromise(new ConnectException('Timeout', $request->toPsrRequest($request)))
             ]
         );
     }

@@ -21,9 +21,17 @@ class BestSellerTest extends TestCase
         return $this->get("/api/$version/$uri", $headers);
     }
 
+    public static function versionDataProvider(): array
+    {
+        return [
+            'v1' => ['version' => 'v1'],
+            'v2' => ['version' => 'v2'],
+        ];
+    }
+
     /**
      * Ensure a critical log is generated and a 400 HTTP status code is returned for an invalid data structure.
-     * 
+     *
      * @dataProvider versionDataProvider
      */
     public function test_broken_structure(string $version): void
@@ -37,7 +45,7 @@ class BestSellerTest extends TestCase
 
     /**
      * Ensure a critical log is generated and a 400 HTTP status code is returned for a non-json response.
-     * 
+     *
      * @dataProvider versionDataProvider
      */
     public function test_broken_data(string $version): void
@@ -47,6 +55,20 @@ class BestSellerTest extends TestCase
         $result = $this->getBestSellerApi('best-seller?isbn=9781524763138', $version);
         $result->assertBadRequest();
         $logSpy->shouldHaveReceived('critical')->once();
+    }
+
+    /**
+     * Ensure a critical log is generated and a 400 HTTP status code is returned for a non-json response.
+     *
+     * @dataProvider versionDataProvider
+     */
+    public function test_broken_connection(string $version): void
+    {
+        FakeHttpService::fakeNytBestSellerBrokenConnection();
+        $logSpy = Log::spy();
+        $result = $this->getBestSellerApi('best-seller?isbn=9781524763138', $version);
+        $result->assertBadRequest()->assertSeeText('retry in an hour');
+        $logSpy->shouldHaveReceived('warning')->once();
     }
 
     /**
@@ -66,14 +88,6 @@ class BestSellerTest extends TestCase
         }
 
         $logSpy->shouldHaveReceived('critical')->once();
-    }
-
-    public static function versionDataProvider(): array
-    {
-        return [
-            'v1' => ['version' => 'v1'],
-            'v2' => ['version' => 'v2'],
-        ];
     }
 
     public static function brokenSchemaDataProvider(): array

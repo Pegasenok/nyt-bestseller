@@ -5,7 +5,7 @@ namespace App\Http\Controllers\v2;
 use App\DTO\BestSellerRequestDto;
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\ApiVersion;
-use App\Http\Requests\BestSellerRequest;
+use App\Http\Requests\BestSellerFormRequest;
 use App\Pipeline\CachedHttpCall;
 use App\Pipeline\ErrorHandlingCall;
 use App\Pipeline\LimitedCall;
@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Pipeline;
 class BestSellerController extends Controller
 {
     public function __invoke(
-        BestSellerRequest $request,
+        BestSellerFormRequest $request,
         BestSellerInterface $bestSellerService
     ): JsonResponse {
         return Pipeline::send(

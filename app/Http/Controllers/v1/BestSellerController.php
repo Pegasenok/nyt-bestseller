@@ -5,14 +5,14 @@ namespace App\Http\Controllers\v1;
 use App\DTO\BestSellerRequestDto;
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\ApiVersion;
-use App\Http\Requests\BestSellerRequest;
+use App\Http\Requests\BestSellerFormRequest;
 use App\Services\BestSellerInterface;
 use Illuminate\Http\JsonResponse;
 
 class BestSellerController extends Controller
 {
     public function __invoke(
-        BestSellerRequest $request,
+        BestSellerFormRequest $request,
         BestSellerInterface $bestSellerService
     ): JsonResponse {
         $results = $bestSellerService->getBestSellerResults(

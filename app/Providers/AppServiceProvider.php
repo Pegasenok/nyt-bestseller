@@ -22,6 +22,8 @@ class AppServiceProvider extends ServiceProvider
 
         Http::macro('nyt', function () {
             return Http::baseUrl(config('services.nyt.base_url'))
+                ->timeout(config('services.nyt.timeout'))
+                ->connectTimeout(config('services.nyt.timeout'))
                 ->withQueryParameters(['api-key' => config('services.nyt.api_key')]);
         });
 

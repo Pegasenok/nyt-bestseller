@@ -4,18 +4,14 @@ namespace App\Pipeline;
 
 use App\DTO\BookResult;
 use App\DTO\HttpAwareDtoInterface;
-use App\Exceptions\ExternalApiPreconditionException;
-use GuzzleHttp\Promise\PromiseInterface;
+use App\Services\HttpResponseValidator;
 use Illuminate\Http\Client\PendingRequest;
-use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Storage;
-use JsonSchema\Validator;
 
 class NytHttpCall
 {
     public function __construct(
-        private readonly Validator $validator,
+        private readonly HttpResponseValidator $validator,
     ) {
     }
 
@@ -27,7 +23,9 @@ class NytHttpCall
                 $dto->getHttpParameters()
             )->throw();
 
-        $results = collect($this->processHttpResult($response))->map(function ($data) {
+        // todo this is specific to BestSellers history endpoint
+        $validatedResponse = $this->validator->processHttpResult($response, $dto);
+        $results = collect($validatedResponse['results'])->map(function ($data) {
             return BookResult::fromJson($data);
         });
 
@@ -38,32 +36,5 @@ class NytHttpCall
     private function getNytHttp(): PendingRequest
     {
         return Http::nyt();
-    }
-
-    /**
-     * @throws ExternalApiPreconditionException
-     */
-    private function processHttpResult(PromiseInterface|Response $response): array
-    {
-        // Decode without associative array since the validator requires objects to remain as stdClass instances
-        $validationObject = json_decode($response->body(), false);
-        $this->validator->validate($validationObject, $this->getEndpointJsonSchema());
-
-        if (!$this->validator->isValid()) {
-            $errorString = "Malformed response from external API:\n";
-            array_map(function ($error) use (&$errorString) {
-                $errorString .= $error['property'].': '.$error['message']."\n";
-            }, $this->validator->getErrors());
-            throw new ExternalApiPreconditionException($errorString, $response);
-        }
-
-        $json = $response->json();
-
-        return $json['results'];
-    }
-
-    public function getEndpointJsonSchema(): object
-    {
-        return json_decode(Storage::disk('resources')->get('schema/best-sellers-history.json'));
     }
 }

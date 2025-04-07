@@ -3,7 +3,11 @@
 namespace App\DTO;
 
 use App\Services\BestSellerInterface;
+use Illuminate\Support\Facades\Storage;
 
+/**
+ * todo: this is more than a Dto now, consider new naming in the future
+ */
 class BestSellerRequestDto implements CachingAwareDtoInterface, LimitsAwareDtoInterface, HttpAwareDtoInterface
 {
     public function __construct(
@@ -48,5 +52,10 @@ class BestSellerRequestDto implements CachingAwareDtoInterface, LimitsAwareDtoIn
     protected function normalizeIsbn(): ?string
     {
         return $this->isbn ? implode(',', $this->isbn) : null;
+    }
+
+    public function getEndpointJsonSchema()
+    {
+        return json_decode(Storage::disk('resources')->get('schema/best-sellers-history.json'));
     }
 }
