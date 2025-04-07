@@ -1,29 +1,24 @@
 <?php
 
-namespace App\Services;
+namespace App\Pipeline;
 
-use App\DTO\BestSellerRequestDto;
+use App\DTO\CachingAwareDtoInterface;
 use Illuminate\Support\Facades\Cache;
 
-class CachedBestSellerDecorator implements BestSellerInterface
+class CachedHttpCall
 {
-    public function __construct(
-        private BestSellerInterface $service,
-    ) {
-    }
-
-    public function getBestSellerResults(BestSellerRequestDto $dto): array
+    public function __invoke(CachingAwareDtoInterface $dto, \Closure $next)
     {
         // todo try to extract to configuration, but tests should be able to enable/disable this
         if (!config('services.nyt.cache.enabled')) {
-            return $this->service->getBestSellerResults($dto);
+            return $next($dto);
         }
         try {
             $data = Cache::remember(
                 $dto->getCacheKey(),
                 $oneMinute = 60,
-                function () use ($dto) {
-                    return $this->service->getBestSellerResults($dto);
+                function () use ($dto, $next) {
+                    return $next($dto);
                 }
             );
         } catch (\Throwable $throwable) {
@@ -33,5 +28,4 @@ class CachedBestSellerDecorator implements BestSellerInterface
 
         return $data;
     }
-
 }

@@ -2,7 +2,9 @@
 
 namespace App\DTO;
 
-class BestSellerRequestDto
+use App\Services\BestSellerInterface;
+
+class BestSellerRequestDto implements CachingAwareDtoInterface, LimitsAwareDtoInterface, HttpAwareDtoInterface
 {
     public function __construct(
         public ?int $offset,
@@ -15,8 +17,36 @@ class BestSellerRequestDto
     ) {
     }
 
-    public function cacheKey(string $prefix): string
+    public function getHttpEndpoint(): string
     {
-        return $prefix . ':' . md5(json_encode($this));
+        return BestSellerInterface::LISTS_BEST_SELLERS_HISTORY_ENDPOINT;
+    }
+
+    public function getHttpParameters(): array
+    {
+        return [
+            'author' => $this->author,
+            'isbn' => $this->normalizeIsbn(),
+            'title' => $this->title,
+            'offset' => $this->offset,
+        ];
+    }
+
+    public function getCacheKey(): string
+    {
+        return BestSellerInterface::LISTS_BEST_SELLERS_HISTORY_ENDPOINT.':'.md5(json_encode($this));
+    }
+
+    /**
+     * @return array{day: int, minute: int}
+     */
+    public function getLimits(): array
+    {
+        return config('services.nyt.limits');
+    }
+
+    protected function normalizeIsbn(): ?string
+    {
+        return $this->isbn ? implode(',', $this->isbn) : null;
     }
 }
