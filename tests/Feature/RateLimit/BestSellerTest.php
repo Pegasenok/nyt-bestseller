@@ -3,10 +3,8 @@
 namespace Tests\Feature\RateLimit;
 
 use App\Services\BestSellerInterface;
-use App\Services\FakeHttpService;
 use Illuminate\Support\Facades\RateLimiter;
 use Tests\Feature\BestSellerBaseTestCase;
-use Tests\TestCase;
 
 class BestSellerTest extends BestSellerBaseTestCase
 {

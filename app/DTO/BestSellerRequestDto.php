@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 /**
  * todo: this is more than a Dto now, consider new naming in the future
  */
-class BestSellerRequestDto implements CachingAwareDtoInterface, LimitsAwareDtoInterface, HttpAwareDtoInterface
+class BestSellerRequestDto implements CachingAwareDtoInterface, HttpAwareDtoInterface, LimitsAwareDtoInterface
 {
     public function __construct(
         public ?int $offset,

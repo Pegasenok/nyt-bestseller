@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Log;
 class ExternalApiTemporaryException extends \Exception
 {
     private array $context;
+
     public static int $retry = 0;
 
     public function __construct(string $message, RequestException|ConnectionException $previous)
@@ -37,8 +38,7 @@ class ExternalApiTemporaryException extends \Exception
                 ];
             }
         }
-        if ($previous instanceof RequestException)
-        {
+        if ($previous instanceof RequestException) {
             $this->context = [
                 'response' => $previous->response->body(),
                 'stats' => $previous->response->handlerStats(),

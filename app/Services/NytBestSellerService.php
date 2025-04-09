@@ -27,6 +27,7 @@ class NytBestSellerService implements BestSellerInterface
 
     /**
      * todo error handling to separate service and redact sensitive api-key
+     *
      * @throws ExternalApiPreconditionException
      * @throws ExternalApiTemporaryException
      * @throws ExternalApiViolationException
@@ -45,13 +46,13 @@ class NytBestSellerService implements BestSellerInterface
                 ->throw();
         } catch (RequestException $e) {
             if ($e->response->clientError()) {
-                throw new ExternalApiViolationException("External error while fetching bestseller data.", $e);
+                throw new ExternalApiViolationException('External error while fetching bestseller data.', $e);
             }
-            throw new ExternalApiTemporaryException("Bestseller data unavailable, retry in 5 minutes.", $e);
+            throw new ExternalApiTemporaryException('Bestseller data unavailable, retry in 5 minutes.', $e);
         } catch (ConnectionException $e) {
-            throw new ExternalApiTemporaryException("Bestseller data unavailable, retry in an hour.", $e);
+            throw new ExternalApiTemporaryException('Bestseller data unavailable, retry in an hour.', $e);
         } catch (Exception $e) {
-            throw new SomethingWrongException("Failed to fetch bestseller data.", $e->getCode(), $e);
+            throw new SomethingWrongException('Failed to fetch bestseller data.', $e->getCode(), $e);
         }
 
         $results = collect($this->processHttpResult($response))->map(function ($data) {
@@ -60,7 +61,6 @@ class NytBestSellerService implements BestSellerInterface
 
         return $results->toArray();
     }
-
 
     /** @see \App\Providers\AppServiceProvider::register for macros configuration */
     private function getNytHttp(): PendingRequest

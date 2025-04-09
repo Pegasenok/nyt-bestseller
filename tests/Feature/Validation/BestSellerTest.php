@@ -35,7 +35,6 @@ class BestSellerTest extends BestSellerBaseTestCase
         Http::assertNothingSent();
     }
 
-
     /**
      * @dataProvider versionDataProvider
      */

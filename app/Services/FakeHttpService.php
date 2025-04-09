@@ -22,7 +22,7 @@ class FakeHttpService
                 FakeHttpService::getFakePath() => Http::response(
                     Storage::disk('resources')->get('json/best-sellers-history.json'),
                     200
-                )
+                ),
             ]
         );
     }
@@ -35,7 +35,7 @@ class FakeHttpService
                 FakeHttpService::getFakePath() => Http::response(
                     Storage::disk('resources')->get('json/wrong-structure.json'),
                     200
-                )
+                ),
             ]
         );
     }
@@ -48,7 +48,7 @@ class FakeHttpService
                 FakeHttpService::getFakePath() => Http::response(
                     Storage::disk('resources')->get('json/wrong-data.json'),
                     200
-                )
+                ),
             ]
         );
     }
@@ -57,7 +57,7 @@ class FakeHttpService
     {
         Http::fake(
             [
-                FakeHttpService::getFakePath() => fn($request) => new RejectedPromise(new ConnectException('Timeout', $request->toPsrRequest($request)))
+                FakeHttpService::getFakePath() => fn ($request) => new RejectedPromise(new ConnectException('Timeout', $request->toPsrRequest($request))),
             ]
         );
     }
@@ -70,7 +70,7 @@ class FakeHttpService
                 FakeHttpService::getFakePath() => Http::response(
                     Storage::disk('resources')->get("json/$name"),
                     200
-                )
+                ),
             ]
         );
     }

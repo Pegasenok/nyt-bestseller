@@ -2,7 +2,6 @@
 
 namespace App\Pipeline;
 
-use App\DTO\HttpCallPipelineAwareInterface;
 use App\DTO\LimitsAwareDtoInterface;
 use App\Exceptions\TooManyAttemptsException;
 use Illuminate\Support\Facades\RateLimiter;

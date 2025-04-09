@@ -24,7 +24,7 @@ class BestSellerFormRequest extends FormRequest
         return [
             'offset' => 'integer|multiple_of:20', // todo: instead of propagating constraints, consider adjusting values
             'isbn' => 'array',
-            'isbn.*' => new Isbn(),
+            'isbn.*' => new Isbn,
             'title' => 'string',
             'author' => 'string',
         ];

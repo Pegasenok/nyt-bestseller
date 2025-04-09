@@ -17,7 +17,8 @@ class ApiVersion
         return $next($request);
     }
 
-    public static function getVersion() {
+    public static function getVersion()
+    {
         return Config::get(self::APP_VERSION);
     }
 }

@@ -17,6 +17,7 @@ use Symfony\Component\Uid\UuidV4;
 class ExternalApiViolationException extends \Exception
 {
     private array $context;
+
     private UuidV4 $uuid;
 
     public function __construct(string $message, RequestException $previous)

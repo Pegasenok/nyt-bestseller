@@ -29,6 +29,7 @@ class Handler extends ExceptionHandler
             if ($e instanceof ValidationException) {
                 return null;
             }
+
             return response()->json(['status' => false, 'message' => 'Something went wrong. Retry in 5 minutes.'], 400, []);
         });
     }

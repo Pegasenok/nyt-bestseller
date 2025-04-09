@@ -2,10 +2,7 @@
 
 namespace Tests\Feature\Isbn;
 
-use App\Services\BestSellerInterface;
-use App\Services\FakeHttpService;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\RateLimiter;
 use Tests\Feature\BestSellerBaseTestCase;
 
 class BestSellerTest extends BestSellerBaseTestCase

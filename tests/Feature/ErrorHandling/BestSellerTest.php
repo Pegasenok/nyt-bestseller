@@ -4,8 +4,8 @@ namespace Tests\Feature\ErrorHandling;
 
 use App\Services\FakeHttpService;
 use Illuminate\Support\Facades\Log;
-use Tests\TestCase;
 use Illuminate\Testing\TestResponse;
+use Tests\TestCase;
 
 /**
  * Avoid extending @see \Tests\Feature\BestSellerBaseTestCase::setUp
@@ -100,26 +100,26 @@ class BestSellerTest extends TestCase
                 'jsonFile' => 'best-sellers-history-bug1.json',
                 'expectedTexts' => [
                     'Malformed response',
-                    'status:'
+                    'status:',
                 ],
-                'version' => $version
+                'version' => $version,
             ];
             $data["missing_required_fields_$version"] = [
                 'jsonFile' => 'best-sellers-history-bug2.json',
                 'expectedTexts' => [
                     'Malformed response',
                     'is required',
-                    'num_results'
+                    'num_results',
                 ],
-                'version' => $version
+                'version' => $version,
             ];
             $data["missing_isbns_in_result_$version"] = [
                 'jsonFile' => 'best-sellers-history-bug3.json',
                 'expectedTexts' => [
                     'Malformed response',
-                    'results[3].isbns: The property isbns is required'
+                    'results[3].isbns: The property isbns is required',
                 ],
-                'version' => $version
+                'version' => $version,
             ];
             $data["incorrect_data_types_$version"] = [
                 'jsonFile' => 'best-sellers-history-bug4.json',
@@ -128,7 +128,7 @@ class BestSellerTest extends TestCase
                     'description: Integer value found, but a string or a null is required',
                     'contributor: Boolean value found, but a string or a null is required',
                 ],
-                'version' => $version
+                'version' => $version,
             ];
         }
 

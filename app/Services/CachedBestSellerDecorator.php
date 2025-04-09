@@ -33,5 +33,4 @@ class CachedBestSellerDecorator implements BestSellerInterface
 
         return $data;
     }
-
 }
