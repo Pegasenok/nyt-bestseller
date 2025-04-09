@@ -15,7 +15,7 @@ class HttpResponseValidator
     ) {
     }
 
-    public function processHttpResult(PromiseInterface|Response $response, HttpAwareDtoInterface $dto): array
+    public function processHttpJsonResult(PromiseInterface|Response $response, HttpAwareDtoInterface $dto): array
     {
         // Decode without associative array since the validator requires objects to remain as stdClass instances
         $validationObject = json_decode($response->body(), false);

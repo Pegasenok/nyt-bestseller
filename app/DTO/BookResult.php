@@ -2,11 +2,8 @@
 
 namespace App\DTO;
 
-use Illuminate\Support\Facades\Log;
-
 class BookResult
 {
-    // todo: sample
     public function __construct(
         public string $title = '',
         public string $description = '',
@@ -23,11 +20,6 @@ class BookResult
 
     public static function fromJson(array $json): self
     {
-        // todo may be refactored into business layer
-        if (count($json['isbns']) > 1) {
-            Log::notice('multiple isbns found', ['json' => $json]);
-        }
-
         return new self(
             title: $json['title'] ?? '',
             description: $json['description'] ?? '',
