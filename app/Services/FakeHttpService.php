@@ -18,6 +18,11 @@ class FakeHttpService
     {
         Http::fake(
             [
+                /** @see resources/json/best-sellers-history-offset120.json */
+                FakeHttpService::getFakePath().'offset=120' => Http::response(
+                    Storage::disk('resources')->get('json/best-sellers-history-offset120.json'),
+                    200
+                ),
                 /** @see resources/json/best-sellers-history.json */
                 FakeHttpService::getFakePath() => Http::response(
                     Storage::disk('resources')->get('json/best-sellers-history.json'),
