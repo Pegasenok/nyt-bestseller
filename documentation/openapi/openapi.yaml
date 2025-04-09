@@ -1,0 +1,187 @@
+openapi: 3.0.0
+info:
+  title: NYT Best Sellers API
+  description: API for retrieving New York Times Best Sellers data
+  version: 1.0.0
+  contact:
+    name: API Support
+    email: support@example.com
+
+servers:
+  - url: http://127.0.0.1/api/v1
+    description: API v1
+  - url: http://127.0.0.1/api/v2
+    description: API v2
+
+paths:
+  /best-seller:
+    get:
+      summary: Search Best Sellers
+      description: Search for books in the NYT Best Sellers history
+      operationId: searchBestSellers
+      tags:
+        - Best Sellers
+      parameters:
+        - name: offset
+          in: query
+          description: Sets the starting point of the result set (0, 20, ...). Used to paginate through results if there are more than 20. Defaults to 0.
+          schema:
+            type: integer
+            multipleOf: 20
+            minimum: 0
+        - name: isbn
+          in: query
+          description: International Standard Book Number, 10 or 13 digits. Can be provided as a single value or multiple values.
+          schema:
+            oneOf:
+              - type: string
+                pattern: '^(?:\d{10}|\d{13})$'
+              - type: array
+                items:
+                  type: string
+                  pattern: '^(?:\d{10}|\d{13})$'
+        - name: title
+          in: query
+          description: The title of the best seller. When searching, you can specify a portion of a title or a full title.
+          schema:
+            type: string
+        - name: author
+          in: query
+          description: The author of the best seller. When searching, you can specify any combination of first, middle and last names.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  version:
+                    type: string
+                    example: v1
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/BookResult'
+        '400':
+          description: Temporary error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TemporaryError'
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+        '429':
+          description: Too many requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+
+components:
+  schemas:
+    BookResult:
+      type: object
+      required:
+        - title
+        - isbns
+      properties:
+        title:
+          type: string
+          description: The title of the book
+          example: "The Midnight Library"
+        description:
+          type: string
+          description: A description of the book
+          example: "Between life and death there is a library..."
+        contributor:
+          type: string
+          description: The author and other contributors
+          example: "Matt Haig"
+        author:
+          type: string
+          description: The primary author of the book
+          example: "Matt Haig"
+        contributor_note:
+          type: string
+          description: Additional information about contributors
+        price:
+          type: integer
+          description: The publisher's list price in cents
+          example: 2799
+        age_group:
+          type: string
+          description: The target age group for the book
+          example: "Adult"
+        publisher:
+          type: string
+          description: The publisher of the book
+          example: "Viking"
+        isbns:
+          type: array
+          description: List of ISBNs associated with this book
+          items:
+            type: object
+            required:
+              - isbn10
+              - isbn13
+            properties:
+              isbn10:
+                type: string
+                description: The 10-digit ISBN
+                example: "0525619472"
+              isbn13:
+                type: string
+                description: The 13-digit ISBN
+                example: "9780525619470"
+
+    ValidationError:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "The given data was invalid."
+        errors:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+          example:
+            isbn: ["must be a valid International Standard Book Number (ISBN)"]
+
+    TooManyRequestsError:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Too many attempts per minute."
+
+    TemporaryError:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Bestseller data unavailable, retry in 5 minutes."
+
+    ServerError:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Failed to fetch bestseller data."

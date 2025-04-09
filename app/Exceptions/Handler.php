@@ -30,7 +30,9 @@ class Handler extends ExceptionHandler
                 return null;
             }
 
-            return response()->json(['status' => false, 'message' => 'Something went wrong. Retry in 5 minutes.'], 400, []);
+            $errorCode = $e instanceof \Exception ? 400 : 500;
+
+            return response()->json(['status' => false, 'message' => 'Something went wrong. Retry in 5 minutes.'], $errorCode, []);
         });
     }
 }
