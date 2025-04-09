@@ -132,23 +132,14 @@ components:
           type: string
           description: The publisher of the book
           example: "Viking"
-        isbns:
-          type: array
-          description: List of ISBNs associated with this book
-          items:
-            type: object
-            required:
-              - isbn10
-              - isbn13
-            properties:
-              isbn10:
-                type: string
-                description: The 10-digit ISBN
-                example: "0525619472"
-              isbn13:
-                type: string
-                description: The 13-digit ISBN
-                example: "9780525619470"
+        primary_isbn13:
+          type: string
+          description: The 13-digit ISBN
+          example: "9780525619470"
+        primary_isbn10:
+          type: string
+          description: The 10-digit ISBN
+          example: "0525619472"
 
     ValidationError:
       type: object

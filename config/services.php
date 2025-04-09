@@ -34,7 +34,7 @@ return [
     'nyt' => [
         'api_key' => env('NYT_API_KEY'),
         'base_url' => env('NYT_API_PATH'),
-        'timeout' => 1,
+        'timeout' => 3,
         // limits based on https://developer.nytimes.com/faq#a11
         'limits' => [
             'day' => 500,

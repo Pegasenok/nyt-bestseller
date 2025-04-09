@@ -1,3 +1,5 @@
+## Laravel JSON API acting as a wrapper/middleman around the New York Times Best Sellers History API
+
 ### Build 
 ```bash
 # Docker build process has some caveats because of `Laravel Sail` integration
@@ -14,6 +16,12 @@ docker compose build
 docker compose up -d
 docker compose exec -it laravel.test ./vendor/bin/phpunit
 ```
+
+### Endpoints
+[Openapi schema](documentation/openapi/openapi.yaml)
+
+Copy `.env.example` file into `.env` and set `NYT_API_KEY` and `NYT_API_PATH` keys.
+
 -----
 
 ### Miscellaneous:

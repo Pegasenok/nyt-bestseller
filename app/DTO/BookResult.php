@@ -2,7 +2,7 @@
 
 namespace App\DTO;
 
-class BookResult
+class BookResult implements \JsonSerializable
 {
     public function __construct(
         public string $title = '',
@@ -32,5 +32,21 @@ class BookResult
             primaryIsbn13: $json['isbns'][0]['isbn13'] ?? '',
             primaryIsbn10: $json['isbns'][0]['isbn10'] ?? '',
         );
+    }
+
+    public function jsonSerialize(): mixed
+    {
+        return [
+            'title' => $this->title,
+            'description' => $this->description,
+            'contributor' => $this->contributor,
+            'author' => $this->author,
+            'contributor_note' => $this->contributorNote,
+            'price' => $this->price,
+            'age_group' => $this->ageGroup,
+            'publisher' => $this->publisher,
+            'primary_isbn13' => $this->primaryIsbn13,
+            'primary_isbn10' => $this->primaryIsbn10,
+        ];
     }
 }
