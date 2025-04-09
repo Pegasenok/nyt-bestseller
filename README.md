@@ -2,7 +2,7 @@
 
 ### Build 
 ```bash
-# Docker build process has some caveats because of `Laravel Sail` integration
+# Docker build process requires some environment variables because of `Laravel Sail` integration
 export APP_PORT=${APP_PORT:-80}
 export APP_SERVICE=${APP_SERVICE:-"laravel.test"}
 export DB_PORT=${DB_PORT:-3306}
@@ -14,6 +14,7 @@ docker compose build
 ### Run tests
 ```bash
 docker compose up -d
+docker compose exec -it laravel.test composer install
 docker compose exec -it laravel.test ./vendor/bin/phpunit
 ```
 

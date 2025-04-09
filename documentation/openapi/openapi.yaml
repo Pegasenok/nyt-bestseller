@@ -97,9 +97,6 @@ components:
   schemas:
     BookResult:
       type: object
-      required:
-        - title
-        - isbns
       properties:
         title:
           type: string
